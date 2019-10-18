@@ -18,7 +18,6 @@ class ExecutiveList {
     async save() {
         try {
             const response = await db.result(`INSERT INTO ceos (name, year) VALUES ($1, $2)`, [this.name, this.year]);
-            console.log('response: ', response);
             return response;
         } catch(error) {
             return error.message;
