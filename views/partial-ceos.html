@@ -3,3 +3,13 @@
         <li>${ceo.name}: ${ceo.year}</li>
     `).join('')}
 </ul>
+<h3>Add a New CEO</h3>
+<form action="./ceos/add" method="POST">
+    <label>CEO Name
+        <input type="text" name="ceo_name" placeholder="Name"/>
+    </label>
+    <label>Year
+        <input type="text" name="ceo_year" placeholder="Year"/>
+    </label>
+    <button type="submit">Save CEO</button>
+</form>
