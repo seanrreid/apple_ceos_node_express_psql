@@ -1,6 +1,6 @@
 const db = require("./conn");
 
-class ExecutiveList {
+class Executive {
     constructor(name, year) {
         this.name = name;
         this.year = year;
@@ -10,9 +10,18 @@ class ExecutiveList {
         try {
             const response = await db.any(`SELECT * FROM ceos;`);
             return response;
-        } catch (error) {
+        } catch(error) {
             return error.message;
         }
     }
+
+    async addNewCeo() {
+        try {
+            const response = await db.result(`INSERT INTO ceos (name, year) VALUES ($1, $2);`, [this.name, this.year] );
+            return response;
+        } catch(error) {
+            return error.message
+        }
+    }
 }
-module.exports = ExecutiveList;
+module.exports = Executive;
