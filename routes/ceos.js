@@ -4,16 +4,16 @@ const express = require("express"),
 
 router.get("/", async function(req, res, next) {
     const executiveData = await ceoModel.getAll();
-
-    res.render("template", {
-        locals: {
-            title: "Apple CEOs page",
-            data: executiveData
-        },
-        partials: {
-            partial: "partial-ceos"
-        }
-    });
+    res.status(200).json(executiveData);
+    // res.render("template", {
+    //     locals: {
+    //         title: "Apple CEOs page",
+    //         data: executiveData
+    //     },
+    //     partials: {
+    //         partial: "partial-ceos"
+    //     }
+    // });
 });
 
 module.exports = router;
